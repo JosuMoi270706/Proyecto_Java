@@ -1,0 +1,104 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('/img/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+/* Navbar styles */
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #f39c12; /* Fondo naranja */
+    padding: 10px 20px;
+    position: fixed; /* Fija la barra en la parte superior */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para separar visualmente */
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu a:hover {
+    color: #f39c12; /* Cambia el color al pasar el mouse */
+    transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+}
+
+/* Chatbot styles */
+.chatbot-icon {
+    position: fixed;
+    bottom: 120px;
+    right: 30px;
+    z-index: 1000;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.chatbot-icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #f39c12;
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 160px;
+    right: 30px;
+    z-index: 1000;
+    width: 350px;
+    max-height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+    display: none;
+    background-color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Mostrar cuando se activa */
+.chatbot-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ocultar con animación */
+.chatbot-container.hide {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .menu {
+        justify-content: space-between;
+    }
+
+    .chatbot-container {
+        width: 90%;
+        max-height: 400px;
+    }
+
+    .chatbot-icon {
+        bottom: 100px;
+        right: 20px;
+    }
+}
